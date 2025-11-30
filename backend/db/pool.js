@@ -15,3 +15,7 @@ export const pool = new Pool({
 pool.on("connect", () => {
   console.log("Connected to Postgres");
 });
+
+pool.on("error", (err) => {
+  console.error("Unexpected Postgres error", err);
+});

@@ -1,0 +1,12 @@
+/* кореневий контейнер сторінки */
+.map-page {
+  height: 100vh;
+  width: 100%;
+}
+
+/* усе, що під navbar-ом */
+.map-page-content {
+  margin-top: 70px;               /* висота navbar */
+  height: calc(100vh - 70px);
+  position: relative;
+}

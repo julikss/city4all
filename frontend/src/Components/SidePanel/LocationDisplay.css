@@ -1,0 +1,89 @@
+.item-header {
+  cursor: pointer;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-header:hover {
+  opacity: 0.8;
+}
+
+.plus-icon {
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.plus-icon.open {
+  transform: rotate(45deg);
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.item-address {
+  font-size: 14px;
+  color: #666;
+  margin-top: 3px;
+}
+
+.item-details {
+  background: var(--transparent-bg);
+  border-radius: var(--radius-btn);
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.rating-row {
+  display: flex;
+  gap: 4px;
+  margin: 8px 0 12px 0;
+}
+
+.rating-star {
+  width: 22px;
+  height: 22px;
+  color: #ccc;
+}
+
+.rating-star.filled {
+  color: #f4b400;
+}
+
+.comments-header {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.add-comment-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-btn);
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-comment-btn:hover {
+  background: var(--secondary-hover);
+}
+
+.add-comment-icon {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+

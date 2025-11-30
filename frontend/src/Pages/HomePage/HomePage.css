@@ -1,0 +1,49 @@
+.home-wrapper {
+  position: fixed;         
+  top: 0;
+  left: 0;
+  width: 70vw;             
+  height: 100%;
+  background: var(--transparent-bg);
+  border-right: 5px solid var(--text-light);
+  box-shadow: 0 0 8px rgba(41, 113, 237, 0.5);
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 
+    transform 0.55s ease-out,
+    opacity 0.4s ease-out;
+}
+
+.home-wrapper.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.home-title {
+  color: #dcdcdc;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.open-button-wrap {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.open-map-button {
+  background: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-btn);
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  transition: 0.2s;
+}
+
+.open-map-button:hover {
+  background: var(--secondary-hover);
+}

@@ -1,0 +1,42 @@
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.features-list {
+  margin-top: 10px;
+  padding-left: 10px;
+  list-style: none;
+  font-size: 14px;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeInUp 0.25s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.status-yes { 
+    color: #1a7f37; 
+}
+
+.status-no { 
+    color: #2d78c9; 
+}
+
+.status-neutral { 
+    color: #555; 
+}

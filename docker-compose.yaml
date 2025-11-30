@@ -1,31 +1,45 @@
-version: '3.9'
-
 services:
-  db:
-    image: postgres:16
-    container_name: postgres_db
-    restart: always
-    env_file:
-      - ./backend/.env
+  postgres_db:
+    image: postgres:15
+    container_name: city_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: citydb
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./backend/db/init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
 
-  backend:
+  city_backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
-    container_name: node_backend
-    restart: always
+      dockerfile: Dockerfile.dev
+    container_name: city_backend
+    environment:
+      DB_HOST: postgres_db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: password
+      DB_NAME: citydb
     ports:
       - "8080:8080"
-    env_file:
-      -  ./backend/.env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     depends_on:
-      - db
-    command: sh -c "node server.js"
-    #command: sh -c "npm run migrate && node server.js"
+      - postgres_db
+    restart: unless-stopped
 
-volumes:
-  pgdata:
+  city_frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: city_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
